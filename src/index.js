@@ -1,4 +1,5 @@
 const autoprefixer = require('gulp-autoprefixer');
+const console = require('console');
 const cssmin = require('gulp-cssmin');
 const less = require('gulp-less');
 const path = require('path');
@@ -29,9 +30,11 @@ class LESSBuild {
     }
 
     watch() {
-        watch(path.join(path.dirname(this._dest), '**/*.less'), () => {
+        watch(path.join(path.dirname(this._src), '**/*.less'), () => {
+            console.log('-> compilling...');
             this.build();
         });
+        this.build();
     }
 }
 
