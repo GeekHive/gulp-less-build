@@ -6,7 +6,7 @@ const less = require('gulp-less');
 const path = require('path');
 const rename = require('gulp-rename');
 const watch = require('gulp-watch');
-const yargs = require('yargs');
+const yargs = require('yargs').argv;
 
 class LESSBuild {
     constructor(src, dest, gulp) {
