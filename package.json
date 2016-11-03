@@ -21,6 +21,7 @@
     "gulp-cssmin": "^0.1.7",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.10",
     "yargs": "^6.3.0"
   }

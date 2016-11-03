@@ -1,6 +1,7 @@
 const autoprefixer = require('gulp-autoprefixer');
 const console = require('console');
 const cssmin = require('gulp-cssmin');
+const gutil = require('gulp-util');
 const less = require('gulp-less');
 const path = require('path');
 const rename = require('gulp-rename');
@@ -22,7 +23,9 @@ class LESSBuild {
         return this._gulp.src(this._src)
             .pipe(less())
             .pipe(autoprefixer())
-            .pipe(cssmin({
+            .pipe(this._verbose
+                ? gutil.noop()
+                : cssmin({
                 advanced: false
             }))
             .pipe(rename(path.basename(this._dest)))
@@ -31,7 +34,7 @@ class LESSBuild {
 
     watch() {
         watch(path.join(path.dirname(this._src), '**/*.less'), () => {
-            console.log('-> compilling...');
+            console.log('-> compiling...');
             this.build();
         });
         this.build();
