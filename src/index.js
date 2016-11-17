@@ -11,7 +11,11 @@ const yargs = require('yargs').argv;
 class LESSBuild {
     constructor(src, dest, gulp) {
         this._src = src;
-        this._dest = dest;
+        this._destinations =
+            Array.isArray(dest)
+                ? dest
+                : [dest];
+
         this._verbose = yargs.verbose;
         this._gulp = gulp;
 
@@ -20,7 +24,7 @@ class LESSBuild {
     }
 
     build() {
-        return this._gulp.src(this._src)
+        const stream = this._gulp.src(this._src)
             .pipe(less())
             .pipe(autoprefixer())
             .pipe(this._verbose
@@ -28,8 +32,14 @@ class LESSBuild {
                 : cssmin({
                 advanced: false
             }))
-            .pipe(rename(path.basename(this._dest)))
-            .pipe(this._gulp.dest(path.dirname(this._dest)));
+
+        return this._destinations
+            .reduce(
+                (str, dest) => 
+                    str
+                        .pipe(rename(path.basename(dest)))
+                        .pipe(this._gulp.dest(path.dirname(dest))),
+                stream);
     }
 
     watch() {
