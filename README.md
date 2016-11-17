@@ -35,6 +35,18 @@ const css = new LESSBuild(
     gulp);
 ```
 
+The `dest` argument may also be an array of destinations.
+
+```
+const css = new LESSBuild(
+    `${__dirname}/assets/less/site.less`,
+    [
+        `${__dirname}/assets/css/site.min.css`,
+        `${__dirname}/assets/example/alternative.css`
+    ],
+    gulp);
+```
+
 ### `LESSBuild#build()`
 
 The `LESSBuild#build` method can be passed directly to gulp as a build task:
