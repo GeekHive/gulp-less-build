@@ -44,7 +44,8 @@ class LESSBuild {
 
     watch() {
         watch(path.join(path.dirname(this._src), '**/*.less'), () => {
-            console.log('-> compiling...');
+            const src = gutil.colors.cyan(this._src);
+            gutil.log(`Rebuilding '${src}'...`);
             this.build();
         });
         this.build();
