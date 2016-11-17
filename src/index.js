@@ -31,7 +31,7 @@ class LESSBuild {
                 ? gutil.noop()
                 : cssmin({
                 advanced: false
-            }))
+            }));
 
         return this._destinations
             .reduce(
