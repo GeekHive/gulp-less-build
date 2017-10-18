@@ -16,6 +16,22 @@ Using yarn
 yarn add geekhive/gulp-less-build --dev
 ```
 
+## Configuration
+
+Optional configuration for processing steps can be defined in module's `package.json` from the key `LESSBuild`.  For example:
+
+```js
+{
+    // ...
+    "LESSBuild": {
+        "less": { ... }, // LESS options
+        "autoprefixer": { ... }, // Autoprefixer options
+        "cssmin": { ... } // CSSMin options
+    },
+    // ...
+}
+```
+
 ## Usage
 
 Require `@geekhive/gulp-less-build` to access the build class.
