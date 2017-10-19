@@ -1,6 +1,6 @@
 {
   "name": "@geekhive/gulp-less-build",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A simplified, standardized, gulp-compatible build script to bundle a source file using LESS, Autoprefixer, and CSSMin",
   "main": "src/index.js",
   "scripts": {
