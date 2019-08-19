@@ -1,3 +1,7 @@
+# Warning: this project as been deprecated
+
+This tool has been deprecated internally but remains for posterity.  We actively encourage you to use another tool and will not provide support or accept liability if you use this.
+
 # GeekHive Gulp LESS Build
 
 A simplified, standardized, gulp-compatible build script to bundle a source file using LESS, Autoprefixer, and CSSMin
